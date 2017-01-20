@@ -90,7 +90,8 @@ def create_rmFlow(cfgFile,name='retMapFlow',useGrpTmpl=False):
     getDSandPhase = pe.Node(name='getDSandPhase'+name, interface=Function(
             function     = RetMapBash,
             input_names  = ['delLead','keepVol','infile_all','cond_all',
-                            'SUBJECTS_DIR','openfmriDir','brainmask','prefix','nscans'],
+                            'SUBJECTS_DIR','openfmriDir','brainmask',
+                            'prefix','nscans','retmapPath'],
             output_names = ['preprocScans','outdir','phaseFiles']))
             
     getDSandPhase.inputs.delLead      = cfg.RetMap.delLead
@@ -98,6 +99,7 @@ def create_rmFlow(cfgFile,name='retMapFlow',useGrpTmpl=False):
     getDSandPhase.inputs.cond_all     = cfg.RetMap.cond_list
     getDSandPhase.inputs.SUBJECTS_DIR = cfg.FSdir
     getDSandPhase.inputs.openfmriDir  = cfg.datadir
+    getDSandPhase.inputs.retmapPath   = cfg.retmapPath
     retMapFlow.connect(datagrabber,'func',getDSandPhase,'infile_all')
     retMapFlow.connect(datagrabber,'brainmask',getDSandPhase,'brainmask')
 

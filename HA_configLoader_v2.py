@@ -242,6 +242,7 @@ def configLoader(cfgfile):
             '_Proj'+cfg.ProjDS.tasknr+ \
             workdirkey+ \
             '_'+config.get('analysis_settings', 'outdirAdd')
+    cfg.retmapPath  = config.get('paths', 'retmapPath')
     cfg.FSdir       = config.get('paths', 'FSdir')
     cfg.workdir     = cfg.workfolder+'/wf_workdir_'+dirkey
     cfg.outdir      = cfg.hypalDir+'/wf_out_'+dirkey

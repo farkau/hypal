@@ -569,7 +569,8 @@ def removeGrandMean(infileSave,doit=True):
 
 # ==================================================================== #
 def RetMapBash(delLead, keepVol, infile_all, cond_all,
-                SUBJECTS_DIR, openfmriDir,brainmask,prefix="",nscans=4):
+                SUBJECTS_DIR, openfmriDir,brainmask,prefix="",nscans=4.
+                bashscript='studyforrest-data-retinotopy/code/process_retmap'):
     """
     RetMap via AFNI run in bash script
     
@@ -596,11 +597,6 @@ def RetMapBash(delLead, keepVol, infile_all, cond_all,
     cond_all    = cond_all[:nscans]
     # extract the actual subj from the filepath:
     subj = infile_all[0].split("/")[-3]
-    
-    ## fixed Variables ##
-    #
-    bashscript = '/home/fkaule/Documents/Auswertung/paper-forrest_phase2_data/code/retmap/processing_pipeline/process_retmap'
-    ##                               
     
     # transform list of strings of infile_all into one string #
     infiles  = ' '.join(infile_all)
